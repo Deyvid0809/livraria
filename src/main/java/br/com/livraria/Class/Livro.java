@@ -3,17 +3,17 @@ package br.com.livraria.Class;
 public class Livro {
     private String titulo;
     private String autor;
-    private String isbn;
+    private String id;
     private String editora;
 
     public Livro(){
 
     }
 
-    public Livro(String titulo, String autor, String isbn, String editora) {
+    public Livro(String titulo, String autor, String id, String editora) {
         this.titulo = titulo;
         this.autor = autor;
-        this.isbn = isbn;
+        this.id = id;
         this.editora = editora;
     }
 
@@ -25,8 +25,8 @@ public class Livro {
         this.autor = autor;
     }
 
-    public void setIsbn(String isbn) {
-        this.isbn = isbn;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public void setEditora(String editora) {
@@ -41,8 +41,8 @@ public class Livro {
         return autor;
     }
 
-    public String getIsbn() {
-        return isbn;
+    public String getId() {
+        return id;
     }
 
     public String getEditora() {

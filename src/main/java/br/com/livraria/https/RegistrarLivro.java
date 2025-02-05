@@ -9,7 +9,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.util.Scanner;
 
-@Path("livro")
+@Path("/livro")
 public class RegistrarLivro {
 
     private static final String FILE_PATH = "livros.json";
@@ -19,9 +19,9 @@ public class RegistrarLivro {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response cadastrarLivro(Livro livro) {
-        if (livro.getTitulo() == null || livro.getAutor() == null || livro.getEditora() == null || livro.getIsbn() == null) {
+        if (livro.getTitulo() == null || livro.getAutor() == null || livro.getEditora() == null || livro.getId() == null) {
             return Response.status(Response.Status.BAD_REQUEST)
-                    .entity ("{\"erro\": \"Título, autor, isbn e editora são obrigatórios!\"}")
+                    .entity ("{\"erro\": \"Título, autor, id e editora são obrigatórios!\"}")
                     .build();
         }
 
@@ -57,8 +57,8 @@ public class RegistrarLivro {
                     .append(livro.getTitulo())
                     .append("\", \"autor\": \"")
                     .append(livro.getAutor())
-                    .append("\", \"isbn\": \"")
-                    .append(livro.getIsbn())
+                    .append("\", \"id\": \"")
+                    .append(livro.getId())
                     .append("\", \"editora\": \"")
                     .append(livro.getEditora())
                     .append("\"}");
